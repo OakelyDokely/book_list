@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+{% block content %}
+
+<h2>Genre List</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for item in genre_list %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

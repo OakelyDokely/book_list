@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% block content %}
+
+<h2>Author List</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Nationality</th>
+        <th>Genres</th>
+        <th>Number of Books</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for author in author_list %}
+    <tr>
+        <td>{{ author.name }}</td>
+        <td>{{ author.nationality }}</td>
+        <td>
+            {% for book in books %}
+            {% if book.author|lower == author.name|lower %}
+                {% for genre in book.genre.all %}
+                {{ genre.name }}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </td>
+        <td>
+            {{ author.num_books }}
+        </td>          
+        <td><a href="{% url 'editauthor' author.id %}">Edit</a></td>
+        <td>Delete</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+{% block content %}
+
+<h2>Book List</h2>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genres</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for item in book_list %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td><a href="{% url 'authorbooks' item.author|slugify %}">{{ item.author }}</a></td>
+        <td>
+            {% for genre in item.genre.all %}
+            {{ genre.name }}
+            {% endfor %}
+        </td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+{% block content %}
+
+<h2>All books for {{ author|title }}</h2>
+
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Genres</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for item in books %}
+    {% if item.author|lower == author|lower %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td>
+            {% for genre in item.genre.all %}
+            {{ genre.name }}
+            {% endfor %}
+        </td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}

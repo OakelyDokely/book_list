@@ -1,0 +1,11 @@
+{% extends './base.html' %}
+{% block content %}
+
+<a href="{% url 'booklist' %}"><h2>Book List</h2></a>
+<a href="{% url 'authorlist' %}"><h2>Author List</h2></a>
+<a href="{% url 'genrelist' %}"><h2>Genre List</h2></a>
+<a href="{% url 'addbook' %}"><h2>Add Book</h2></a>
+<a href="{% url 'addauthor' %}"><h2>Add Author</h2></a>
+<a href="{% url 'addgenre' %}"><h2>Add Genre</h2></a>
+
+{% endblock %}
